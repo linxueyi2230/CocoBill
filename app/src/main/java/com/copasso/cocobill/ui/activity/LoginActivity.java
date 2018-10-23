@@ -1,6 +1,7 @@
 package com.copasso.cocobill.ui.activity;
 
 import android.content.Intent;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -8,6 +9,8 @@ import android.widget.TextView;
 import butterknife.BindView;
 import butterknife.OnClick;
 import butterknife.OnFocusChange;
+
+import com.copasso.cocobill.BuildConfig;
 import com.copasso.cocobill.R;
 import com.copasso.cocobill.model.bean.remote.MyUser;
 import com.copasso.cocobill.mvp.presenter.Imp.UserLogPresenterImp;
@@ -51,6 +54,10 @@ public class LoginActivity extends BaseActivity implements UserLogView {
 
         userLogPresenter = new UserLogPresenterImp(this);
 
+        if (BuildConfig.DEBUG){
+            usernameET.setText("michael");
+            passwordET.setText("123456");
+        }
     }
 
     //监听密码输入框的聚焦事件
@@ -110,7 +117,7 @@ public class LoginActivity extends BaseActivity implements UserLogView {
     public void login() {
         String username = usernameET.getText().toString();
         String password = passwordET.getText().toString();
-        if (username.length() == 0 || password.length() == 0) {
+        if (TextUtils.isEmpty(username) || TextUtils.isEmpty(password)) {
             SnackbarUtils.show(mContext, "用户名或密码不能为空");
             return;
         }
@@ -128,7 +135,7 @@ public class LoginActivity extends BaseActivity implements UserLogView {
         String username = usernameET.getText().toString();
         String password = passwordET.getText().toString();
         String rpassword = rpasswordET.getText().toString();
-        if (email.length() == 0 || username.length() == 0 || password.length() == 0 || rpassword.length() == 0) {
+        if (TextUtils.isEmpty(email) || TextUtils.isEmpty(username) || TextUtils.isEmpty(password) || TextUtils.isEmpty(rpassword)) {
             SnackbarUtils.show(mContext, "请填写必要信息");
             return;
         }
