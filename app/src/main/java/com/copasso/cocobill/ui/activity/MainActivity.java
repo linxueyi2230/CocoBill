@@ -140,8 +140,9 @@ public class MainActivity extends BaseActivity implements NavigationView.OnNavig
         if (currentUser != null) {
             drawerTvAccount.setText(currentUser.getUsername());
             drawerTvMail.setText(currentUser.getEmail());
-            Glide.with(mContext).load(currentUser.getImage()).into(drawerIv);
-        }else{
+            Glide.with(mContext).load(currentUser.getImage()).placeholder(R.mipmap.ic_def_icon).error(R.mipmap.ic_def_icon).into(drawerIv);
+            BmobRepository.getInstance().syncBill(currentUser.getObjectId());
+        } else {
             drawerTvAccount.setText("账号");
             drawerTvMail.setText("点我登陆");
             drawerIv.setImageResource(R.mipmap.ic_def_icon);
@@ -173,20 +174,6 @@ public class MainActivity extends BaseActivity implements NavigationView.OnNavig
             drawer.closeDrawer(GravityCompat.START);
         } else {
             super.onBackPressed();
-        }
-    }
-
-    /**
-     * 监听点击事件 R.id.drawer_tv_name,R.id.drawer_tv_mail
-     *
-     * @param view
-     */
-    @OnClick({})
-    public void onClick(View view) {
-        switch (view.getId()) {
-
-            default:
-                break;
         }
     }
 
@@ -229,10 +216,11 @@ public class MainActivity extends BaseActivity implements NavigationView.OnNavig
         } else if (id == R.id.nav_total) {
             viewPager.setCurrentItem(2);
         } else if (id == R.id.nav_sync) {   //同步账单
-            if(currentUser==null)
-                SnackbarUtils.show(mContext,"请先登陆");
-            else
+            if (currentUser == null){
+                SnackbarUtils.show(mContext, "请先登陆");
+            } else{
                 BmobRepository.getInstance().syncBill(currentUser.getObjectId());
+            }
         }  else if (id == R.id.nav_setting) {   //设置
             startActivity(new Intent(this,SettingActivity.class));
         } else if (id == R.id.nav_about) {     //关于
