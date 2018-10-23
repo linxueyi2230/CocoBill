@@ -42,7 +42,7 @@
             android:drawableLeft="@android:drawable/sym_action_email"
             android:drawablePadding="5dp"
             android:gravity="center_vertical"
-            android:hint="Email"
+            android:hint="请输入邮箱"
             android:inputType="textWebEmailAddress"
             android:minHeight="45dp"
             android:singleLine="true"
@@ -132,7 +132,7 @@
                 android:layout_marginRight="20dp"
                 android:gravity="center"
                 android:padding="8dp"
-                android:text="Login" />
+                android:text="登录" />
 
             <TextView
                 android:id="@+id/login_tv_sign"
@@ -142,7 +142,7 @@
                 android:layout_marginRight="8dp"
                 android:layout_toLeftOf="@id/login_btn_login"
                 android:gravity="center"
-                android:text="Sign Up"
+                android:text="注册"
                 android:textColor="#999999"
                 android:textSize="14sp" />
 
