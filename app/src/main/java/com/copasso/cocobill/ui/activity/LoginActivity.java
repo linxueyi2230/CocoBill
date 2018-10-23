@@ -81,14 +81,14 @@ public class LoginActivity extends BaseActivity implements UserLogView {
             case R.id.login_tv_sign:  //sign
                 if (isLogin) {
                     //置换注册界面
-                    signTV.setText("Login");
-                    loginBtn.setText("Sign Up");
+                    signTV.setText("登录");
+                    loginBtn.setText("注册");
                     rpasswordET.setVisibility(View.VISIBLE);
                     emailET.setVisibility(View.VISIBLE);
                 } else {
                     //置换登陆界面
-                    signTV.setText("Sign Up");
-                    loginBtn.setText("Login");
+                    signTV.setText("注册");
+                    loginBtn.setText("登录");
                     rpasswordET.setVisibility(View.GONE);
                     emailET.setVisibility(View.GONE);
                 }
