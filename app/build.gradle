@@ -6,17 +6,26 @@ android {
     compileSdkVersion 27
     buildToolsVersion "27.0.3"
     defaultConfig {
-        applicationId "com.copmi.cocobill"
+        applicationId "com.copwan.cocobill"
         minSdkVersion 17
         targetSdkVersion 27
         //兼容Android6.0系统所需
         useLibrary 'org.apache.http.legacy'
         versionCode 1
-        versionName "2.0.1"
+        versionName "1.0"
+        flavorDimensions "versionCode"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
 
         // Enabling multidex support.
         multiDexEnabled true
+    }
+    productFlavors {
+        xiaomi {}
+        huawei {}
+        wandoujia {}
+        vivo {}
+        baidu {}
+
     }
     buildTypes {
         release {
