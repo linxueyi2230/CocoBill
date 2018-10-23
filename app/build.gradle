@@ -6,7 +6,7 @@ android {
     compileSdkVersion 27
     buildToolsVersion "27.0.3"
     defaultConfig {
-        applicationId "com.copasso.cocobill"
+        applicationId "com.copmi.cocobill"
         minSdkVersion 17
         targetSdkVersion 27
         //兼容Android6.0系统所需
