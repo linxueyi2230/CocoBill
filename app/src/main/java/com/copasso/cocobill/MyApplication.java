@@ -23,7 +23,8 @@ public class MyApplication extends MultiDexApplication {
         context = getApplicationContext();
 
         //第一：默认初始化
-        Bmob.initialize(this, "941f4add6503358048b02b83fcb605f6");
+        //Bmob.initialize(this, "941f4add6503358048b02b83fcb605f6");
+        Bmob.initialize(this,"ddc778bacada7c67ac039680e7c8edee");
     }
 
     /**
